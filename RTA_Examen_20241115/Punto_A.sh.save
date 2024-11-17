@@ -56,6 +56,3 @@ sudo mkfs.ext4 /dev/vg_datos/lv_docker
 # Crear puntos de montaje
 sudo mkdir -p /work
 sudo mount /dev/vg_datos/lv_workareas /work
-
-
-
