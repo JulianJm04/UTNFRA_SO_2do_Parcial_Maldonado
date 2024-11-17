@@ -1,0 +1,4 @@
+grupo1 usuario1
+grupo2 usuario2
+grupo3 usuario3
+
