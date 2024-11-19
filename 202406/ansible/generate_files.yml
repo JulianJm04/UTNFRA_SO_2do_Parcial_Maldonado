@@ -1,0 +1,30 @@
+---
+- name: Generar archivos de 2do Parcial
+  hosts: localhost
+  vars:
+    nombre: "{{ nombre }}"
+    apellido: "{{ apellido }}"
+    division: "{{ division }}"
+    ip: "{{ ip }}"
+    distro: "{{ distro }}"
+    cores: "{{ cores }}"
+  tasks:
+    - name: Crear directorios
+      file:
+        path: "/tmp/2do_parcial/{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - alumno
+        - equipo
+
+    - name: Crear archivo datos_alumno.txt
+      template:
+        src: alumno_template.j2
+        dest: "/tmp/2do_parcial/alumno/datos_alumno.txt"
+
+    - name: Crear archivo datos_equipo.txt
+      template:
+        src: equipo_template.j2
+        dest: "/tmp/2do_parcial/equipo/datos_equipo.txt"
+

@@ -14,3 +14,37 @@
 }
 2024-06-24 18:08:07,885 p=3444395 u=upszot n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
 2024-06-24 18:08:07,885 p=3444395 u=upszot n=ansible | localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-11-19 11:51:02,564 p=2463 u=vagrant n=ansible | ERROR! the playbook: generate_files.yml could not be found
+2024-11-19 11:51:20,948 p=2466 u=vagrant n=ansible | ERROR! the playbook: generate_files.yml could not be found
+2024-11-19 11:54:05,871 p=2554 u=vagrant n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-11-19 11:54:05,879 p=2554 u=vagrant n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+
+2024-11-19 11:54:06,083 p=2554 u=vagrant n=ansible | PLAY [Generar archivos de 2do Parcial] *****************************************
+2024-11-19 11:54:06,095 p=2554 u=vagrant n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-19 11:54:07,242 p=2554 u=vagrant n=ansible | ok: [localhost]
+2024-11-19 11:54:07,259 p=2554 u=vagrant n=ansible | TASK [Crear directorios] *******************************************************
+2024-11-19 11:54:07,675 p=2554 u=vagrant n=ansible | changed: [localhost] => (item=alumno)
+2024-11-19 11:54:07,908 p=2554 u=vagrant n=ansible | changed: [localhost] => (item=equipo)
+2024-11-19 11:54:07,919 p=2554 u=vagrant n=ansible | TASK [Crear archivo datos_alumno.txt] ******************************************
+2024-11-19 11:54:07,957 p=2554 u=vagrant n=ansible | fatal: [localhost]: FAILED! => {"changed": false, "msg": "Could not find or access 'alumno_template.j2'\nSearched in:\n\t/home/vagrant/UTNFRA_SO_2do_Parcial_Maldonado/202406/ansible/templates/alumno_template.j2\n\t/home/vagrant/UTNFRA_SO_2do_Parcial_Maldonado/202406/ansible/alumno_template.j2\n\t/home/vagrant/UTNFRA_SO_2do_Parcial_Maldonado/202406/ansible/templates/alumno_template.j2\n\t/home/vagrant/UTNFRA_SO_2do_Parcial_Maldonado/202406/ansible/alumno_template.j2 on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2024-11-19 11:54:07,959 p=2554 u=vagrant n=ansible | PLAY RECAP *********************************************************************
+2024-11-19 11:54:07,959 p=2554 u=vagrant n=ansible | localhost                  : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-11-19 11:59:06,881 p=2724 u=vagrant n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-11-19 11:59:06,887 p=2724 u=vagrant n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+
+2024-11-19 11:59:07,210 p=2724 u=vagrant n=ansible | PLAY [Generar archivos de 2do Parcial] *****************************************
+2024-11-19 11:59:07,223 p=2724 u=vagrant n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-19 11:59:08,549 p=2724 u=vagrant n=ansible | ok: [localhost]
+2024-11-19 11:59:08,568 p=2724 u=vagrant n=ansible | TASK [Crear directorios] *******************************************************
+2024-11-19 11:59:09,011 p=2724 u=vagrant n=ansible | ok: [localhost] => (item=alumno)
+2024-11-19 11:59:09,253 p=2724 u=vagrant n=ansible | ok: [localhost] => (item=equipo)
+2024-11-19 11:59:09,266 p=2724 u=vagrant n=ansible | TASK [Crear archivo datos_alumno.txt] ******************************************
+2024-11-19 11:59:10,066 p=2724 u=vagrant n=ansible | changed: [localhost]
+2024-11-19 11:59:10,076 p=2724 u=vagrant n=ansible | TASK [Crear archivo datos_equipo.txt] ******************************************
+2024-11-19 11:59:10,574 p=2724 u=vagrant n=ansible | changed: [localhost]
+2024-11-19 11:59:10,594 p=2724 u=vagrant n=ansible | PLAY RECAP *********************************************************************
+2024-11-19 11:59:10,595 p=2724 u=vagrant n=ansible | localhost                  : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

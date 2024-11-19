@@ -1,11 +1,37 @@
 ---
-- hosts: all
-
+- name: Configurar entorno para el 2do Parcial
+  hosts: localhost
+  become: true  # Para ejecutar tareas con privilegios de sudo
   tasks:
-    - include_role:
-        name: 2do_parcial
-    
-    - name: "Otra tarea"
-      debug:
-        msg: "Despues de la ejecucion del rol"
+    # Crear la estructura de directorios
+    - name: Crear directorios para alumno y equipo
+      file:
+        path: "/tmp/2do_parcial/{{ item }}"
+        state: directory
+        mode: '0755'
+      with_items:
+        - alumno
+        - equipo
+
+    # Crear el archivo datos_alumno.txt usando template
+    - name: Generar archivo datos_alumno.txt
+      template:
+        src: datos_alumno.j2
+        dest: /tmp/2do_parcial/alumno/datos_alumno.txt
+        mode: '0644'
+
+    # Crear el archivo datos_equipo.txt usando template
+    - name: Generar archivo datos_equipo.txt
+      template:
+        src: datos_equipo.j2
+        dest: /tmp/2do_parcial/equipo/datos_equipo.txt
+        mode: '0644'
+
+    # Configurar sudoers para el grupo 2PSupervisores
+    - name: Configurar sudoers para el grupo 2PSupervisores
+      copy:
+        content: |
+          %2PSupervisores ALL=(ALL) NOPASSWD:ALL
+        dest: /etc/sudoers.d/2PSupervisores
+        mode: '0440'
 

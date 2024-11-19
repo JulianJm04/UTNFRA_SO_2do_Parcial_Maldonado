@@ -1,0 +1,34 @@
+---
+- name: Crear la estructura y los archivos requeridos
+  hosts: localhost
+  become: yes  # Para obtener permisos de sudo
+  tasks:
+    # Crear la estructura de directorios
+    - name: Crear directorio /tmp/2do_parcial/alumno
+      file:
+        path: /tmp/2do_parcial/alumno
+        state: directory
+        mode: '0755'
+
+    - name: Crear directorio /tmp/2do_parcial/equipo
+      file:
+        path: /tmp/2do_parcial/equipo
+        state: directory
+        mode: '0755'
+
+    - name: Crear archivo datos_alumno.txt
+      template:
+        src: datos_alumno.j2
+        dest: /tmp/2do_parcial/alumno/datos_alumno.txt
+
+    - name: Crear archivo datos_equipo.txt
+      template:
+        src: datos_equipo.j2
+        dest: /tmp/2do_parcial/equipo/datos_equipo.txt
+
+    - name: Configurar sudoers para 2PSupervisores
+      lineinfile:
+        path: /etc/sudoers
+        line: '%2PSupervisores ALL=(ALL) NOPASSWD: ALL'
+        validate: '/usr/sbin/visudo -cf %s'
+
