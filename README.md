@@ -1,4 +1,4 @@
-# UTNFRA_SO_1P2C_2024_Maldonado
+# UTNFRA_SO_2P2C_2024_Maldonado
 ### Nombre: Julian
 ### Apellido: Maldonado
 ### Legajo: 113
